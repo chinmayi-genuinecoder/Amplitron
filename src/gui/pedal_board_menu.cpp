@@ -20,6 +20,7 @@
 #include "audio/effects/wah.h"
 #include "audio/effects/octaver.h"
 #include "audio/effects/pitch_shifter.h"
+#include "audio/effects/nam_loader.h"
 
 #include <imgui.h>
 #include <cstdio>
@@ -98,6 +99,12 @@ void PedalBoard::render_add_pedal_menu() {
         }
         if (ImGui::MenuItem("Cabinet Sim")) {
             add_effect_and_show(std::make_shared<CabinetSim>());
+        }
+
+        ImGui::Separator();
+        ImGui::TextColored(ImVec4(0.20f, 0.80f, 0.60f, 1.0f), "ML MODELS");
+        if (ImGui::MenuItem("NAM Loader")) {
+            add_effect_and_show(std::make_shared<NamLoader>());
         }
 
         ImGui::Separator();

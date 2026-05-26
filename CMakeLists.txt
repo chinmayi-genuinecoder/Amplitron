@@ -174,6 +174,7 @@ set(APP_SOURCES
     src/audio/recorder_wav.cpp
     src/audio/effects/distortion.cpp
     src/audio/effects/overdrive.cpp
+    src/audio/effects/nam_loader.cpp
     src/audio/effects/delay.cpp
     src/audio/effects/reverb.cpp
     src/audio/effects/chorus.cpp
@@ -543,6 +544,7 @@ else() # NOT EMSCRIPTEN, ANDROID, or IOS
         src/gui/command_history.cpp
         src/audio/effects/distortion.cpp
         src/audio/effects/overdrive.cpp
+    src/audio/effects/nam_loader.cpp
         src/audio/effects/delay.cpp
         src/audio/effects/reverb.cpp
         src/audio/effects/chorus.cpp
