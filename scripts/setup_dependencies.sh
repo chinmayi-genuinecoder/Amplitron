@@ -114,3 +114,15 @@ echo ""
 echo "=== Setup Complete ==="
 echo "Build with:"
 echo "  mkdir -p build && cd build && cmake .. && make -j\$(nproc)"
+
+# --- RTNeural (real-time neural network inference) ---
+RTNEURAL_DIR="$EXTERNAL_DIR/RTNeural"
+
+if [ ! -d "$RTNEURAL_DIR" ]; then
+    echo ""
+    echo "Fetching RTNeural..."
+    git clone --depth 1 https://github.com/jatinchowdhury18/RTNeural.git "$RTNEURAL_DIR"
+    echo "RTNeural fetched successfully."
+else
+    echo "RTNeural already present, skipping."
+fi
