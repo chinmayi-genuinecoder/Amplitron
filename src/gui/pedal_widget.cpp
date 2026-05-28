@@ -75,13 +75,19 @@ bool PedalWidget::render(float zoom) {
     if (is_ir_cab) {
         render_ir_cabinet_display(p0, pedal_width, zoom);
     }
-
+    
+    // --- NAM Loader custom display ---
+    bool is_nam_loader = !is_amp && (std::strcmp(effect_->name(), "NAM Loader") == 0);
+    if (is_nam_loader) {
+        render_nam_loader_display(p0, pedal_width, zoom);
+    }
+    
     if (is_looper) {
         render_looper_display(p0, pedal_width, zoom);
     } else if (is_mb_comp) {
         render_multiband_compressor_display(dl, p0, pedal_width, zoom);
     } else {
-        render_knobs(dl, p0, pedal_width, is_amp, is_tuner, is_ir_cab, zoom);
+        render_knobs(dl, p0, pedal_width, is_amp, is_tuner, is_ir_cab || is_nam_loader , zoom);
     }
 
     render_footswitch_and_extras(dl, p0, p1, pedal_width, pedal_height, is_amp, enabled, should_remove, zoom);
