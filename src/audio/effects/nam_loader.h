@@ -6,6 +6,7 @@
 #include "audio/effect.h"
 #include <string>
 #include <memory>
+#include <RTNeural/RTNeural.h>
 
 namespace Amplitron {
 
@@ -24,7 +25,7 @@ private:
     std::vector<EffectParam> params_;
     std::string model_path_;
     bool model_loaded_ = false;
-
+    std::unique_ptr<RTNeural::Model<float>> model_;
 };
 } // namespace Amplitron
 

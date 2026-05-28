@@ -20,9 +20,20 @@ bool NamLoader::load_model(const std::string& path) {
         model_loaded_ = false;
         return false;
     }
-    model_path_ = path;
-    model_loaded_ = true;
-    return true;
+    try {
+        model_ = RTNeural::json_parser::parseJson<float>(f);
+        if (!model_) {
+            model_loaded_ = false;
+            return false;
+        }
+        model_->reset();
+        model_path_ = path;
+        model_loaded_ = true;
+        return true;
+    } catch (...) {
+        model_loaded_ = false;
+        return false;
+    }
 }
 
 void NamLoader::process(float* buffer, int num_samples) {
@@ -31,11 +42,13 @@ void NamLoader::process(float* buffer, int num_samples) {
     const float level = params_[0].value;
 
     for (int i = 0; i < num_samples; ++i) {
-        buffer[i] = buffer[i] * level;
+        float input = buffer[i];
+        buffer[i] = model_->forward(&input) * level;
     }
 }
 
 void NamLoader::reset() {
+    if (model_) model_->reset();
     model_loaded_ = false;
     model_path_.clear();
 }
