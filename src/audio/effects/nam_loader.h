@@ -6,6 +6,7 @@
 #include "audio/effect.h"
 #include <string>
 #include <memory>
+#include <mutex>
 #include <RTNeural/RTNeural.h>
 
 namespace Amplitron {
@@ -35,6 +36,7 @@ private:
     std::string model_path_;
     bool model_loaded_ = false;
     std::unique_ptr<RTNeural::Model<float>> model_;
+    mutable std::mutex model_mutex_; ///< Protects model state across threads.
 };
 } // namespace Amplitron
 

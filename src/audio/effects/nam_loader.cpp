@@ -30,6 +30,7 @@ bool NamLoader::load_model(const std::string& path) {
             return false;
         }
         model_->reset();
+        std::lock_guard<std::mutex> lock(model_mutex_);
         model_path_ = path;
         model_loaded_ = true;
         return true;
@@ -42,7 +43,9 @@ bool NamLoader::load_model(const std::string& path) {
 }
 
 void NamLoader::process(float* buffer, int num_samples) {
-    if (!enabled_ || !model_loaded_) return;
+    if (!enabled_) return;
+    std::lock_guard<std::mutex> lock(model_mutex_);
+    if (!model_loaded_ || !model_) return;
 
     const float level = params_[0].value;
 
@@ -53,6 +56,7 @@ void NamLoader::process(float* buffer, int num_samples) {
 }
 
 void NamLoader::reset() {
+    std::lock_guard<std::mutex> lock(model_mutex_);
     if (model_) model_->reset();
     model_loaded_ = false;
     model_path_.clear();
