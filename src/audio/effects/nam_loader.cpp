@@ -17,12 +17,15 @@ NamLoader::NamLoader() {
 bool NamLoader::load_model(const std::string& path) {
     std::ifstream f(path);
     if (!f.good()) {
+        model_.reset();
+        model_path_.clear();
         model_loaded_ = false;
         return false;
     }
     try {
         model_ = RTNeural::json_parser::parseJson<float>(f);
         if (!model_) {
+            model_path_.clear();
             model_loaded_ = false;
             return false;
         }
@@ -31,6 +34,8 @@ bool NamLoader::load_model(const std::string& path) {
         model_loaded_ = true;
         return true;
     } catch (...) {
+        model_.reset();
+        model_path_.clear();
         model_loaded_ = false;
         return false;
     }
