@@ -54,7 +54,8 @@ endif()
 file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/external")
 if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/nanosvg.h" OR
    NOT EXISTS "${CMAKE_SOURCE_DIR}/external/nanosvgrast.h" OR
-   NOT EXISTS "${CMAKE_SOURCE_DIR}/external/dr_wav.h")
+   NOT EXISTS "${CMAKE_SOURCE_DIR}/external/dr_wav.h" OR
+   NOT EXISTS "${CMAKE_SOURCE_DIR}/external/RTNeural/RTNeural/RTNeural.h")
     message(FATAL_ERROR
         "Missing external header dependencies in external/. "
         "Run scripts/setup_dependencies.sh (Linux/macOS) or "
