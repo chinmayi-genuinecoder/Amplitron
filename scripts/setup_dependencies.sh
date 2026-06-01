@@ -122,8 +122,8 @@ if [ ! -d "$RTNEURAL_DIR" ]; then
     echo ""
     echo "Fetching RTNeural..."
     RTNEURAL_VERSION="1fb1f07"
-    git clone --depth 1 https://github.com/jatinchowdhury18/RTNeural.git "$RTNEURAL_DIR"
-    # Pinned to commit $RTNEURAL_VERSION
+    git clone --depth 1 --branch main https://github.com/jatinchowdhury18/RTNeural.git "$RTNEURAL_DIR"
+    # Pinned to commit $RTNEURAL_VERSION (latest stable as of may 2026)
     echo "RTNeural fetched successfully."
 else
     echo "RTNeural already present, skipping."
