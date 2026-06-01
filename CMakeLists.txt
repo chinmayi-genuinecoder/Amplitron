@@ -59,7 +59,7 @@ if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/nanosvg.h" OR
     message(FATAL_ERROR
         "Missing external header dependencies in external/. "
         "Run scripts/setup_dependencies.sh (Linux/macOS) or "
-        "scripts/setup_dependencies.ps1 (Windows) to fetch nanosvg and dr_wav.")
+        "scripts/setup_dependencies.ps1 (Windows) to fetch required dependencies.")
 endif()
 
 
