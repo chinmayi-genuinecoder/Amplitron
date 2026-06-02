@@ -644,7 +644,7 @@ else() # NOT EMSCRIPTEN, ANDROID, or IOS
         src/audio/recorder_session.cpp
         src/audio/recorder_io.cpp
         src/audio/recorder_wav.cpp
-        src/gui/command_history.cpp
+        src/gui/command_history.cpp)
     # ==========================================================================
     # amplitron_core OBJECT library
     # Sources compiled identically for both Amplitron and amplitron-tests
