@@ -745,15 +745,6 @@ else() # NOT EMSCRIPTEN, ANDROID, or IOS
     # Remove shared sources from APP_SOURCES so Amplitron doesn't recompile them
     list(REMOVE_ITEM APP_SOURCES ${AMPLITRON_CORE_SOURCES})
 
-    add_executable(Amplitron
-        ${APP_SOURCES}
-        ${BACKEND_SOURCES}
-        ${DIALOG_SOURCES}
-        ${IMGUI_SOURCES}
-        $<TARGET_OBJECTS:amplitron_core>
-        $<$<PLATFORM_ID:Windows>:${WIN_RC}>
-    )
-
     target_include_directories(Amplitron PRIVATE
         ${CMAKE_SOURCE_DIR}/src
         ${CMAKE_SOURCE_DIR}/src/presets
