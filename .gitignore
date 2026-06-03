@@ -88,3 +88,4 @@ emsdk/
 *.gcno
 *.info
 *_html_report/
+build_test/
