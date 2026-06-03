@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+d8908e22f245b097fce27bb5a38784be CMakeFiles/copy_fonts
+86288b0f6899ef545e814c9eef3d460b CMakeFiles/copy_presets

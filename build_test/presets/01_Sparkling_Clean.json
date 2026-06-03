@@ -1,0 +1,131 @@
+{
+  "format_version": 1,
+  "name": "01_Sparkling_Clean",
+  "description": "",
+  "saved_at": "2026-05-15T20:44:10",
+  "input_gain": 0.8,
+  "output_gain": 0.8,
+  "effects": [
+    {
+      "type": "Noise Gate",
+      "enabled": true,
+      "mix": 1,
+      "params": {
+        "Threshold": -38.5807,
+        "Attack": 0.5,
+        "Release": 50
+      }
+    },
+    {
+      "type": "Compressor",
+      "enabled": true,
+      "mix": 1,
+      "params": {
+        "Threshold": -25,
+        "Ratio": 3,
+        "Attack": 10,
+        "Release": 150,
+        "Makeup": 2
+      }
+    },
+    {
+      "type": "Overdrive",
+      "enabled": false,
+      "mix": 1,
+      "params": {
+        "Drive": 1.5,
+        "Tone": 0.7,
+        "Level": 0.7
+      }
+    },
+    {
+      "type": "Distortion",
+      "enabled": false,
+      "mix": 1,
+      "params": {
+        "Drive": 2,
+        "Tone": 0.6,
+        "Level": 0.5
+      }
+    },
+    {
+      "type": "Equalizer",
+      "enabled": false,
+      "mix": 1,
+      "params": {
+        "Bass": 0,
+        "Mid": 0,
+        "Treble": 0,
+        "Presence": 0
+      }
+    },
+    {
+      "type": "Chorus",
+      "enabled": true,
+      "mix": 1,
+      "params": {
+        "Rate": 1.2,
+        "Depth": 7,
+        "Level": 0.4
+      }
+    },
+    {
+      "type": "Phaser",
+      "enabled": false,
+      "mix": 1,
+      "params": {
+        "Rate": 0.5,
+        "Depth": 0.7,
+        "Stages": 0,
+        "Feedback": 0.5,
+        "Mix": 0.5
+      }
+    },
+    {
+      "type": "Flanger",
+      "enabled": false,
+      "mix": 1,
+      "params": {
+        "Rate": 0.3,
+        "Depth": 2,
+        "Delay": 1,
+        "Feedback": 0.7,
+        "Mix": 0.5
+      }
+    },
+    {
+      "type": "Delay",
+      "enabled": true,
+      "mix": 1,
+      "params": {
+        "Time": 400,
+        "Feedback": 0.3,
+        "Tone": 0.6,
+        "Level": 0.25
+      }
+    },
+    {
+      "type": "Reverb",
+      "enabled": true,
+      "mix": 1,
+      "params": {
+        "Decay": 0.75,
+        "Damp": 0.3,
+        "Level": 0.35
+      }
+    },
+    {
+      "type": "Amp Sim",
+      "enabled": true,
+      "mix": 1,
+      "params": {
+        "Model": 0,
+        "Gain": 0.4,
+        "Bass": 1,
+        "Mid": -1,
+        "Treble": 2,
+        "Level": 0.75
+      }
+    }
+  ]
+}

@@ -8,9 +8,6 @@
 #include "audio/effects/looper.h"
 #include "audio/effects/multiband_compressor.h"
 #include "audio/effects/nam_loader.h"
-#include "gui/file_dialog.h"
-#include "gui/theme.h"
-#include "gui/gui_midi.h"
 #include "midi/midi_manager.h"
 #include "common.h"
 
@@ -905,47 +902,4 @@ void ScreenComponent::render_multiband_compressor_display(ImDrawList* dl, ImVec2
     // --- RENDER GLOBAL OUT GAIN ---
     render_mb_knob(dl, ImVec2(p0.x + pedal_width - 40.0f * zoom, p0.y + Theme::PEDAL_HEIGHT * zoom - Theme::SWITCH_BOTTOM_OFFSET * zoom + 10.0f * zoom), 17, 13.0f, "outgain");
 }
-
-void PedalWidget::render_nam_loader_display(ImVec2 p0, float pedal_width, float zoom) {
-    auto* nam = dynamic_cast<NamLoader*>(effect_.get());
-    if (!nam) return;
-
-    float btn_w = pedal_width - 30 * zoom;
-    ImGui::SetCursorScreenPos(ImVec2(p0.x + 15 * zoom, p0.y + 50 * zoom));
-    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.10f, 0.25f, 0.15f, 1.0f));
-    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.15f, 0.40f, 0.20f, 1.0f));
-    ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.20f, 0.55f, 0.25f, 1.0f));
-
-    char load_id[64];
-    snprintf(load_id, sizeof(load_id), "Load .nam##nam_load_%d", index_);
-
-    if (ImGui::Button(load_id, ImVec2(btn_w, 22 * zoom))) {
-        std::string path = show_open_dialog("Load NAM Model", "NAM Model", "nam");
-        if (!path.empty()) {
-            nam->load_model(path);
-        }
-    }
-    ImGui::PopStyleColor(3);
-
-    float display_y = p0.y + 78 * zoom;
-    if (!nam->model_path().empty()) {
-        std::string model_name = nam->model_path();
-        size_t slash = model_name.find_last_of("/\\");
-        if (slash != std::string::npos) model_name = model_name.substr(slash + 1);
-        if (model_name.size() > 20) model_name = model_name.substr(0, 17) + "...";
-
-        ImVec2 name_size = ImGui::CalcTextSize(model_name.c_str());
-        float cx = p0.x + pedal_width * 0.5f;
-        ImGui::SetCursorScreenPos(ImVec2(cx - name_size.x * 0.5f, display_y));
-        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.20f, 0.80f, 0.40f, 1.0f));
-        ImGui::TextUnformatted(model_name.c_str());
-        ImGui::PopStyleColor();
-    } else {
-        ImGui::SetCursorScreenPos(ImVec2(p0.x + 15 * zoom, display_y));
-        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
-        ImGui::TextUnformatted("No model loaded");
-        ImGui::PopStyleColor();
-    }
-}
-
 } // namespace Amplitron

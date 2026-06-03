@@ -1,0 +1,12 @@
+/workspaces/Amplitron/build_test/CMakeFiles/Amplitron.dir
+/workspaces/Amplitron/build_test/CMakeFiles/amplitron_core.dir
+/workspaces/Amplitron/build_test/CMakeFiles/amplitron-tests.dir
+/workspaces/Amplitron/build_test/CMakeFiles/copy_presets.dir
+/workspaces/Amplitron/build_test/CMakeFiles/copy_fonts.dir
+/workspaces/Amplitron/build_test/CMakeFiles/test.dir
+/workspaces/Amplitron/build_test/CMakeFiles/edit_cache.dir
+/workspaces/Amplitron/build_test/CMakeFiles/rebuild_cache.dir
+/workspaces/Amplitron/build_test/CMakeFiles/list_install_components.dir
+/workspaces/Amplitron/build_test/CMakeFiles/install.dir
+/workspaces/Amplitron/build_test/CMakeFiles/install/local.dir
+/workspaces/Amplitron/build_test/CMakeFiles/install/strip.dir
