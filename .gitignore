@@ -89,3 +89,5 @@ emsdk/
 *.info
 *_html_report/
 build_test/
+CLAUDE.md
+Testing/
