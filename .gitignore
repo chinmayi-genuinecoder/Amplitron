@@ -27,12 +27,10 @@ recordings/
 *.swo
 *~
 graphify-out/
-
 # OS
 .DS_Store
 Thumbs.db
 desktop.ini
-
 # Dependencies (fetched by setup script)
 external/
 node_modules/
@@ -44,7 +42,6 @@ blob-report/
 tests/web/test-results/
 tests/web/playwright-report/
 tests/web/blob-report/
-
 # Compiled
 *.o
 *.obj
@@ -54,20 +51,15 @@ tests/web/blob-report/
 *.dylib
 *.a
 *.lib
-
 # Debug
 *.pdb
 *.ilk
-
 # Compile commands
 compile_commands.json
-
 # Cache
 .cache/
-
 # ImGui auto-generated state
 imgui.ini
-
 # Android local build files (contain machine-specific paths, never commit)
 android/local.properties
 android/.gradle/
@@ -76,20 +68,16 @@ android/build/
 android/app/.cxx/
 # SDL2 Java bridge — fetched by CI, not committed
 android/app/src/main/java/org/libsdl/
-
 # iOS / Xcode generated files
 build-ios/
 *.xcworkspace/
 xcuserdata/
 emsdk/
-
 # Coverage
 *.gcda
 *.gcno
 *.info
 *_html_report/
 build_test/
-CLAUDE.md
-Testing/
 CLAUDE.md
 Testing/

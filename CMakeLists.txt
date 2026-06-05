@@ -257,26 +257,10 @@ set(APP_SOURCES
     src/audio/recorder/recorder_session.cpp
     src/audio/recorder/recorder_io.cpp
     src/audio/recorder/recorder_wav.cpp
-<<<<<<< HEAD
-    src/audio/effects/distortion.cpp
-    src/audio/effects/overdrive.cpp
-    src/audio/effects/nam_loader.cpp
-    src/audio/effects/delay.cpp
-    src/audio/effects/reverb.cpp
-    src/audio/effects/chorus.cpp
-    src/audio/effects/phaser.cpp
-    src/audio/effects/flanger.cpp
-    src/audio/effects/equalizer.cpp
-    src/audio/effects/noise_gate.cpp
-    src/audio/effects/compressor.cpp
-    src/audio/effects/multiband_compressor.cpp
-    src/audio/effects/looper.cpp
-    src/audio/effects/cabinet_sim.cpp
-    src/audio/effects/amp_simulator.cpp
-=======
     src/audio/effects/core/effect.cpp
     src/audio/effects/distortion/distortion.cpp
     src/audio/effects/distortion/overdrive.cpp
+    src/audio/effects/nam_loader.cpp
     src/audio/effects/delay_reverb/delay.cpp
     src/audio/effects/delay_reverb/reverb.cpp
     src/audio/effects/modulation/chorus.cpp
@@ -289,7 +273,6 @@ set(APP_SOURCES
     src/audio/effects/utility/looper.cpp
     src/audio/effects/amp_cab/cabinet_sim.cpp
     src/audio/effects/amp_cab/amp_simulator.cpp
->>>>>>> upstream/main
     src/audio/dsp/wav_loader.cpp
     src/audio/dsp/convolution_engine.cpp
     src/audio/dsp/spectrum_analyzer.cpp
@@ -722,28 +705,10 @@ else() # NOT EMSCRIPTEN, ANDROID, or IOS
         # GUI utility (no headless guards)
         src/gui/commands/command_history.cpp
         # Effects
-        src/audio/effects/distortion.cpp
-        src/audio/effects/overdrive.cpp
-    src/audio/effects/nam_loader.cpp
-        src/audio/effects/delay.cpp
-        src/audio/effects/reverb.cpp
-        src/audio/effects/chorus.cpp
-        src/audio/effects/phaser.cpp
-        src/audio/effects/flanger.cpp
-        src/audio/effects/equalizer.cpp
-        src/audio/effects/noise_gate.cpp
-        src/audio/effects/compressor.cpp
-        src/audio/effects/multiband_compressor.cpp
-        src/audio/effects/looper.cpp
-        src/audio/effects/cabinet_sim.cpp
-        src/audio/effects/amp_simulator.cpp
-        src/audio/effects/tuner.cpp
-        src/audio/effects/wah.cpp
-        src/audio/effects/octaver.cpp
-        src/audio/effects/pitch_shifter.cpp
         src/audio/effects/core/effect.cpp
         src/audio/effects/distortion/distortion.cpp
         src/audio/effects/distortion/overdrive.cpp
+        src/audio/effects/nam_loader.cpp
         src/audio/effects/delay_reverb/delay.cpp
         src/audio/effects/delay_reverb/reverb.cpp
         src/audio/effects/modulation/chorus.cpp
