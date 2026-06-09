@@ -17,24 +17,33 @@ NamLoader::NamLoader() {
 bool NamLoader::load_model(const std::string& path) {
     std::ifstream f(path);
     if (!f.good()) {
+        std::lock_guard<std::mutex>
+        lock(model_mutex_);
         model_.reset();
         model_path_.clear();
         model_loaded_ = false;
         return false;
     }
     try {
-        model_ = RTNeural::json_parser::parseJson<float>(f);
-        if (!model_) {
+        auto temp_model = RTNeural::json_parser::parseJson<float>(f);
+        if (!temp_model) {
+            std::lock_guard<std::mutex>
+            lock(model_mutex_);
+            model_.reset();
             model_path_.clear();
             model_loaded_ = false;
             return false;
         }
-        model_->reset();
-        std::lock_guard<std::mutex> lock(model_mutex_);
+        temp_model->reset();
+        std::lock_guard<std::mutex>
+        lock(model_mutex_);
+        model_ = std::move(temp_model);
         model_path_ = path;
         model_loaded_ = true;
         return true;
     } catch (...) {
+        std::lock_guard<std::mutex>
+        lock(model_mutex_);
         model_.reset();
         model_path_.clear();
         model_loaded_ = false;
