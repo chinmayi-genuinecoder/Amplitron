@@ -1,5 +1,5 @@
 #include "audio/effects/nam_loader.h"
-#include "audio/effects/effect_factory.h"
+#include "audio/effects/core/effect_factory.h"
 
 #include <fstream>
 #include <stdexcept>
